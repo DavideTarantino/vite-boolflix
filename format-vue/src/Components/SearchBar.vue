@@ -1,8 +1,10 @@
 <script>
+    import { store } from '@/store';
+
     export default {
         name: 'SearchBar',
         data(){
-            return{}
+            return{store}
         }
     }  
 </script>
@@ -24,8 +26,8 @@
         </div>
         <div class="flex-container-section">
             <div id="ricerca">
-                <input type="text" name="" id="" placeholder="Cosa desideri vedere ?">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input v-model="store.selectValue" type="text" name="" id="" placeholder="Cosa desideri vedere ?">
+                <button @click="$emit('ricerca')"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <a href="#"><i class="fa-solid fa-bell"></i></a>
             <a href="#"><i class="fa-solid fa-user"></i></a>

@@ -38,18 +38,22 @@
     .main-containers{
         display: flex;
         flex-direction: column;
+
+        h1{
+            color: white;
+        }
     }
 
     section{
       @include page-layout;
       display: flex;
       flex-direction: column;
-      gap: 70px;  
+      gap: 70px;
     }
 
     .flex-container{     
         display: flex;
-        flex-wrap: wrap;
+        overflow-x: scroll;
         gap: 10px;
     }
 </style>

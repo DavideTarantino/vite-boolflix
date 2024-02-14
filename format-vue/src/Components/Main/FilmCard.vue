@@ -18,8 +18,8 @@
         </div>
 
         <div class="info-card">
-            <p><span>Title:</span> {{ prop.title }}</p>
-            <p><span>Original Title:</span> {{ prop.original_title }}</p>
+            <p><span>Title:</span> {{ prop.title ? prop.title : prop.name }}</p>
+            <p><span>Original Title:</span> {{ prop.original_title ? prop.original_title : prop.original_name }}</p>
             <p><span>Original Language:</span> {{ prop.original_language }}</p>
             <p><span>Average Vote:</span> {{ prop.vote_average }}</p>
             <p><span>Overview:</span> {{ prop.overview }}</p>

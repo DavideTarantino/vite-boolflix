@@ -1,13 +1,16 @@
 <script>
     import SearchBar from './Components/SearchBar.vue';
+    import CardMain from './Components/Main/CardMain.vue'
 
     import { store } from './store';
     import axios from 'axios'
 
     export default {
         components: {
-            SearchBar
-        },
+    SearchBar,
+    CardMain,
+    CardMain
+},
         data(){
             return{store}
         },
@@ -44,6 +47,7 @@
     <header>
         <SearchBar @ricerca="search"/>
     </header>
+        <CardMain/>
 </template>
 
 <style lang="scss">

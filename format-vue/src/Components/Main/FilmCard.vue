@@ -1,11 +1,14 @@
 <script>
+import { store } from '@/store'
+
     export default {
         name: 'FilmCard',
         props: [
             'prop',
         ],
         data(){
-            return{}
+            return{
+            }
         },
         methods: {
             changeFlag(language){
@@ -26,7 +29,8 @@
                     default:
                         return language
                 }
-            }
+            },
+            
         }
     }  
 </script>
@@ -42,12 +46,20 @@
             <p><span>Title:</span> {{ prop.title ? prop.title : prop.name }}</p>
             <p><span>Original Title:</span> {{ prop.original_title ? prop.original_title : prop.original_name }}</p>
             <div id="flag">
-                <span>Original Language: </span><img :src="`https://flagsapi.com/${changeFlag(prop.original_language).toUpperCase()}/flat/24.png`" :alt="prop.original_language" style="width: 25px; border: none;">
+                <span>Original Language:</span><img :src="`https://flagsapi.com/${changeFlag(prop.original_language).toUpperCase()}/flat/24.png`" :alt="prop.original_language" style="width: 25px; border: none;">
             </div>
-            <p><span>Average Vote:</span> {{ prop.vote_average }}</p>
+                <ul>
+                    <li><span>Average Vote: </span></li>
+                    <li v-for="(element, index) in 5" :key="index">
+                        <i
+                            class="fa-star"
+                            :class="(element <= Math.ceil(( prop.vote_average / 2 ))) ? 'fas' : 'far'"
+                            ></i>
+                    </li>
+                </ul>
             <p><span>Overview:</span> {{ prop.overview }}</p>
         </div>
-    </div>
+        </div>
 </template>
 
 <style lang="scss" scoped>
@@ -87,6 +99,12 @@
                 align-items: center;
                 gap: 5px;
             }
+
+            ul{
+                list-style-type: none;
+                display: flex;
+                color: gold;
+            }
         }
     }
 
@@ -98,5 +116,9 @@
         span{
             color: cyan;
         }
+    }
+
+    .starActive{
+        color: yellow;
     }
 </style>
